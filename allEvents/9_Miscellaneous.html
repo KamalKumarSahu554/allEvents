@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Miscellaneous Events</title>
+  </head>
+  <body>
+    <img id="image" src="invalid-url.jpg" alt="Image" />
+    <div
+      id="animation"
+      style="
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        transition: width 2s;
+      "></div>
+    <script>
+      const image = document.getElementById("image");
+      const animation = document.getElementById("animation");
+
+      image.addEventListener("error", () => console.log("Image Load Error"));
+      animation.addEventListener("transitionend", () =>
+        console.log("Transition Ended")
+      );
+      animation.addEventListener("animationend", () =>
+        console.log("Animation Ended")
+      );
+      window.addEventListener("wheel", () => console.log("Mouse Wheel"));
+      window.addEventListener("pointerdown", () => console.log("Pointer Down"));
+      window.addEventListener("pointerup", () => console.log("Pointer Up"));
+      window.addEventListener("pointermove", () => console.log("Pointer Move"));
+      window.addEventListener("pointerenter", () =>
+        console.log("Pointer Enter")
+      );
+      window.addEventListener("pointerleave", () =>
+        console.log("Pointer Leave")
+      );
+
+      // Trigger a transition for demonstration
+      setTimeout(() => {
+        animation.style.width = "200px";
+      }, 1000);
+    </script>
+  </body>
+</html>
